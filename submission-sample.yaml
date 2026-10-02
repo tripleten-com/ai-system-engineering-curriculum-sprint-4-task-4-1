@@ -1,0 +1,62 @@
+# Coldline - Task 4.1
+# File: submission-sample.yaml
+# Component: Fictional completed answer sheet
+# Purpose: Show the accepted shape.
+# Interacts With: docs/contracts/submission.schema.json
+# Sprint/Task: Sprint 4 - Project 4 / Task 4.1
+# Concepts: Answer-sheet shape
+# Tools: YAML
+
+# Complete submission.yaml from the evidence sources named beside each answer group.
+# Keep the supplied keys; replace empty strings and empty lists using each field's stated type.
+# Empty values and placeholder text fail verification.
+# Use submission-sample.yaml for format only; do not copy its fictional values.
+# Do not include secrets, personal data, or local absolute paths.
+# This fictional sample is not a result to submit; an exact copy is rejected. Its values show
+# the shape only and are not a reading of the code.
+
+answers:
+  boundary_flows: ["DF-04", "DF-05", "DF-07"]
+  threat_categories:
+    TH-01: "spoofing"
+    TH-02: "spoofing"
+    TH-03: "spoofing"
+    TH-04: "spoofing"
+    TH-05: "spoofing"
+    TH-06: "spoofing"
+    TH-07: "spoofing"
+    TH-08: "spoofing"
+    TH-09: "spoofing"
+    TH-10: "spoofing"
+    TH-11: "spoofing"
+    TH-12: "spoofing"
+    TH-13: "spoofing"
+    TH-14: "spoofing"
+    TH-15: "spoofing"
+    TH-16: "spoofing"
+    TH-17: "spoofing"
+  likelihood:
+    TH-01: "medium"
+    TH-02: "medium"
+    TH-03: "medium"
+    TH-04: "medium"
+    TH-05: "medium"
+    TH-06: "medium"
+    TH-07: "medium"
+    TH-08: "medium"
+    TH-09: "medium"
+    TH-10: "medium"
+    TH-11: "medium"
+    TH-12: "medium"
+    TH-13: "medium"
+    TH-14: "medium"
+    TH-15: "medium"
+    TH-16: "medium"
+    TH-17: "medium"
+  top_threats: ["TH-09", "TH-11", "TH-13", "TH-14", "TH-16"]
+  control_scope:
+    TH-09: "C-09"
+    TH-11: "C-11"
+    TH-13: "C-12"
+    TH-14: "C-13"
+    TH-16: "C-14"

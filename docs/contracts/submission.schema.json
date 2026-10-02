@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Coldline Task 4.1 public answer contract. Five structured answers read from the supplied security material and the code: the flows that cross a trust boundary, one STRIDE category and one likelihood per catalog threat, the five highest-ranked threats in order, and one control per ranked threat. The public check validates this shape and that the control scope is keyed by the ranked threats; the protected answer check compares the values after the submission on the platform. There is no self-attestation field, no pass boolean, and no recording URL. The id lists repeat docs/security/workflow.md, docs/security/threat-catalog.yaml, and docs/security/control-matrix.md; a contract test keeps them aligned.",
+  "title": "Coldline Task 4.1 answers",
+  "description": "Boundary flows, STRIDE categories, likelihoods, the ranked top five, and their controls.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["answers"],
+  "properties": {
+    "answers": {
+      "description": "The only top-level answer mapping accepted by the public verifier.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_flows",
+        "threat_categories",
+        "likelihood",
+        "top_threats",
+        "control_scope"
+      ],
+      "properties": {
+        "boundary_flows": {
+          "description": "The ids of the data flows in docs/security/workflow.md that cross a trust boundary, in any order.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "DF-01", "DF-02", "DF-03", "DF-04", "DF-05", "DF-06", "DF-07",
+              "DF-08", "DF-09", "DF-10", "DF-11", "DF-12", "DF-13"
+            ]
+          }
+        },
+        "threat_categories": {
+          "description": "One STRIDE category per catalog threat, keyed by threat id.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "TH-01", "TH-02", "TH-03", "TH-04", "TH-05", "TH-06", "TH-07", "TH-08",
+            "TH-09", "TH-10", "TH-11", "TH-12", "TH-13", "TH-14", "TH-15", "TH-16",
+            "TH-17"
+          ],
+          "properties": {
+            "TH-01": {"$ref": "#/$defs/category"},
+            "TH-02": {"$ref": "#/$defs/category"},
+            "TH-03": {"$ref": "#/$defs/category"},
+            "TH-04": {"$ref": "#/$defs/category"},
+            "TH-05": {"$ref": "#/$defs/category"},
+            "TH-06": {"$ref": "#/$defs/category"},
+            "TH-07": {"$ref": "#/$defs/category"},
+            "TH-08": {"$ref": "#/$defs/category"},
+            "TH-09": {"$ref": "#/$defs/category"},
+            "TH-10": {"$ref": "#/$defs/category"},
+            "TH-11": {"$ref": "#/$defs/category"},
+            "TH-12": {"$ref": "#/$defs/category"},
+            "TH-13": {"$ref": "#/$defs/category"},
+            "TH-14": {"$ref": "#/$defs/category"},
+            "TH-15": {"$ref": "#/$defs/category"},
+            "TH-16": {"$ref": "#/$defs/category"},
+            "TH-17": {"$ref": "#/$defs/category"}
+          }
+        },
+        "likelihood": {
+          "description": "One likelihood per catalog threat from the scale in docs/security/scoring.md, keyed by threat id.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "TH-01", "TH-02", "TH-03", "TH-04", "TH-05", "TH-06", "TH-07", "TH-08",
+            "TH-09", "TH-10", "TH-11", "TH-12", "TH-13", "TH-14", "TH-15", "TH-16",
+            "TH-17"
+          ],
+          "properties": {
+            "TH-01": {"$ref": "#/$defs/likelihood"},
+            "TH-02": {"$ref": "#/$defs/likelihood"},
+            "TH-03": {"$ref": "#/$defs/likelihood"},
+            "TH-04": {"$ref": "#/$defs/likelihood"},
+            "TH-05": {"$ref": "#/$defs/likelihood"},
+            "TH-06": {"$ref": "#/$defs/likelihood"},
+            "TH-07": {"$ref": "#/$defs/likelihood"},
+            "TH-08": {"$ref": "#/$defs/likelihood"},
+            "TH-09": {"$ref": "#/$defs/likelihood"},
+            "TH-10": {"$ref": "#/$defs/likelihood"},
+            "TH-11": {"$ref": "#/$defs/likelihood"},
+            "TH-12": {"$ref": "#/$defs/likelihood"},
+            "TH-13": {"$ref": "#/$defs/likelihood"},
+            "TH-14": {"$ref": "#/$defs/likelihood"},
+            "TH-15": {"$ref": "#/$defs/likelihood"},
+            "TH-16": {"$ref": "#/$defs/likelihood"},
+            "TH-17": {"$ref": "#/$defs/likelihood"}
+          }
+        },
+        "top_threats": {
+          "description": "The five highest-scoring catalog threats, highest first, by the rule in docs/security/scoring.md.",
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/threat"}
+        },
+        "control_scope": {
+          "description": "One control id from docs/security/control-matrix.md per ranked threat, keyed by threat id.",
+          "type": "object",
+          "minProperties": 5,
+          "maxProperties": 5,
+          "propertyNames": {"$ref": "#/$defs/threat"},
+          "additionalProperties": {
+            "enum": [
+              "C-01", "C-02", "C-03", "C-04", "C-05", "C-06", "C-07",
+              "C-08", "C-09", "C-10", "C-11", "C-12", "C-13", "C-14", "C-15"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "category": {
+      "enum": [
+        "spoofing",
+        "tampering",
+        "repudiation",
+        "information_disclosure",
+        "denial_of_service",
+        "elevation_of_privilege"
+      ]
+    },
+    "likelihood": {"enum": ["low", "medium", "high"]},
+    "threat": {
+      "enum": [
+        "TH-01", "TH-02", "TH-03", "TH-04", "TH-05", "TH-06", "TH-07", "TH-08",
+        "TH-09", "TH-10", "TH-11", "TH-12", "TH-13", "TH-14", "TH-15", "TH-16",
+        "TH-17"
+      ]
+    }
+  }
+}

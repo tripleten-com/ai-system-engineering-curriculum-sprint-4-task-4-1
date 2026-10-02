@@ -1,0 +1,51 @@
+# Coldline - Task 4.1
+# File: submission-template.yaml
+# Component: Public verifier fixture
+# Purpose: Exercise the blank answer sheet inside the public test suite.
+# Interacts With: tests/contract/test_submission.py
+# Sprint/Task: Sprint 4 - Project 4 / Task 4.1
+# Concepts: Deterministic assessment, blank-sheet rejection
+# Tools: YAML
+
+# A copy of the shipped submission.yaml's values, so the public tests prove the
+# untouched sheet is rejected with the first incomplete field's address.
+answers:
+  boundary_flows: []
+  threat_categories:
+    TH-01: ""
+    TH-02: ""
+    TH-03: ""
+    TH-04: ""
+    TH-05: ""
+    TH-06: ""
+    TH-07: ""
+    TH-08: ""
+    TH-09: ""
+    TH-10: ""
+    TH-11: ""
+    TH-12: ""
+    TH-13: ""
+    TH-14: ""
+    TH-15: ""
+    TH-16: ""
+    TH-17: ""
+  likelihood:
+    TH-01: ""
+    TH-02: ""
+    TH-03: ""
+    TH-04: ""
+    TH-05: ""
+    TH-06: ""
+    TH-07: ""
+    TH-08: ""
+    TH-09: ""
+    TH-10: ""
+    TH-11: ""
+    TH-12: ""
+    TH-13: ""
+    TH-14: ""
+    TH-15: ""
+    TH-16: ""
+    TH-17: ""
+  top_threats: []
+  control_scope: {}
