@@ -73,7 +73,10 @@ threat needs?**
   same party supplied (a tenant or clearance the caller stated, a custodian name the caller
   typed, an identity derived from the request itself), or when it covers only part of what
   the threat names (one of several routes the description lists, one shape of the data but
-  not another). Rate as if nothing were there: `high`.
+  not another). A limit also does not count when it acts on something other than the
+  security property the threat breaks: a cap on how much text is sent does not count while
+  the text still reaches a reader who should not receive it. Rate as if nothing were there:
+  `high`.
 - Something bounds or refuses part of what the threat needs, and the threat as described
   remains possible inside that bound: `medium`.
 - Something refuses exactly what the threat needs: `low`.
