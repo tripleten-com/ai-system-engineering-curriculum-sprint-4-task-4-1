@@ -18,7 +18,13 @@ answers:
   # Source: docs/security/workflow.md and the trace `poe scenario` printed.
   # List the ids (DF-01 .. DF-13) of the flows that cross a trust boundary, in any
   # order. Every id must be a flow in docs/security/workflow.md.
-  boundary_flows: []
+  boundary_flows:
+    - DF-01
+    - DF-06
+    - DF-08
+    - DF-09
+    - DF-11
+    - DF-13
 
   # Task 4.1 — Step 2: Classify and rate each candidate threat
   # Source: docs/security/threat-catalog.yaml, docs/security/scoring.md, and the code on
@@ -30,50 +36,60 @@ answers:
   # - denial_of_service
   # - elevation_of_privilege
   threat_categories:
-    TH-01: ""
-    TH-02: ""
-    TH-03: ""
-    TH-04: ""
-    TH-05: ""
-    TH-06: ""
-    TH-07: ""
-    TH-08: ""
-    TH-09: ""
-    TH-10: ""
-    TH-11: ""
-    TH-12: ""
-    TH-13: ""
-    TH-14: ""
-    TH-15: ""
-    TH-16: ""
-    TH-17: ""
+    TH-01: spoofing
+    TH-02: spoofing
+    TH-03: tampering
+    TH-04: tampering
+    TH-05: repudiation
+    TH-06: information_disclosure
+    TH-07: information_disclosure
+    TH-08: spoofing
+    TH-09: information_disclosure
+    TH-10: repudiation
+    TH-11: information_disclosure
+    TH-12: tampering
+    TH-13: elevation_of_privilege
+    TH-14: denial_of_service
+    TH-15: denial_of_service
+    TH-16: tampering
+    TH-17: repudiation
 
   # One likelihood per threat from the scale in docs/security/scoring.md, rated against
   # the code as it is now (use exact strings): low, medium, high.
   likelihood:
-    TH-01: ""
-    TH-02: ""
-    TH-03: ""
-    TH-04: ""
-    TH-05: ""
-    TH-06: ""
-    TH-07: ""
-    TH-08: ""
-    TH-09: ""
-    TH-10: ""
-    TH-11: ""
-    TH-12: ""
-    TH-13: ""
-    TH-14: ""
-    TH-15: ""
-    TH-16: ""
-    TH-17: ""
+    TH-01: high
+    TH-02: high
+    TH-03: high
+    TH-04: low
+    TH-05: high
+    TH-06: high
+    TH-07: high
+    TH-08: high
+    TH-09: high
+    TH-10: high
+    TH-11: high
+    TH-12: low
+    TH-13: low
+    TH-14: high
+    TH-15: medium
+    TH-16: high
+    TH-17: high
 
   # Task 4.1 — Step 3: Rank the threats and select the controls
   # Source: the score rule and tie-breaking order in docs/security/scoring.md.
   # Exactly five catalog ids, highest score first.
-  top_threats: []
+  top_threats:
+    - TH-01
+    - TH-03
+    - TH-06
+    - TH-05
+    - TH-07
 
   # One control id (C-01 .. C-15) from docs/security/control-matrix.md per threat in
   # top_threats, keyed by the threat id. The keys must be exactly the five ids above.
-  control_scope: {}
+  control_scope:
+    TH-01: C-01
+    TH-03: C-02
+    TH-06: C-04
+    TH-05: C-03
+    TH-07: C-05
